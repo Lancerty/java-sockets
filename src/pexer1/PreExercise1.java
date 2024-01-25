@@ -24,7 +24,7 @@ public class PreExercise1 {
                 break;
             }
         }
-        System.out.println("Program exited.");
+            System.out.println("Program exited.");
     }
 }
 
