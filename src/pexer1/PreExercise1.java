@@ -7,16 +7,18 @@ import java.util.Scanner;
 public class PreExercise1 {
 
     public static void main(String[] args) {
+        int hostnameNumber = 1;
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Type an IP address or hostname: ");
+            System.out.print("Host " + hostnameNumber+ " - Enter an IP address or a hostname: ");
             String hostName = scanner.nextLine();
 
             HostLookup.lookupHost(hostName);
 
-            System.out.print("Search another IP address/hostname [y/n]? ");
+            System.out.print("Search for another IP address/hostname [y/n]? ");
             String response = scanner.nextLine().toLowerCase();
+            hostnameNumber++;
 
             if (!response.equals("y")) {
                 break;
@@ -26,7 +28,7 @@ public class PreExercise1 {
     }
 }
 
-class HostLookup {
+    class HostLookup {
     static void lookupHost(String hostName) {
         try {
             InetAddress[] addresses = InetAddress.getAllByName(hostName);
@@ -35,10 +37,11 @@ class HostLookup {
             System.out.println("Host name\tIP Address");
             for (InetAddress address : addresses) {
                 System.out.println(hostName + "\t" + address.getHostAddress());
-            }
 
-        } catch (UnknownHostException e) {
-            System.out.println("Error: Unknown Host");
+                }
+
+            } catch (UnknownHostException e) {
+                System.out.println("Error: Unknown Host");
         }
     }
 }
